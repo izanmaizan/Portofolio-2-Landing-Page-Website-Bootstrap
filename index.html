@@ -298,6 +298,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="/smooth scrolling.js"></script>
+    <script>
+  $(document).ready(function() {
+    // Tambahkan smooth scrolling ke semua tautan yang memiliki hash (#)
+    $("a[href^='#']").on('click', function(event) {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        // Tambahkan hash ke URL setelah selesai scrolling (opsional)
+        window.location.hash = hash;
+      });
+    });
+  });
+</script>
+
 </body>
 
 </html>
